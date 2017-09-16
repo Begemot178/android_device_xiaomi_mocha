@@ -179,7 +179,7 @@
 (/system)?/vendor/bin/ussrd		u:object_r:ussrd_exec:s0
 /system/bin/ussr_setup.sh		u:object_r:ussr_setup_exec:s0
 # dual wifi
-/system/bin/wpa_supplicant_2		u:object_r:wpa_exec:s0
+/system/bin/wpa_supplicant_2		u:object_r:hal_wifi_supplicant_default_exec:s0
 # frostaudiortp
 /system/bin/frostaudiortp		u:object_r:frostaudiortp_exec:s0
 # pbc
