@@ -81,9 +81,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/permissions/com.nvidia.feature.opengl4.xml:system/etc/permissions/com.nvidia.feature.opengl4.xml \
     $(LOCAL_PATH)/permissions/com.nvidia.nvsi.xml:system/etc/permissions/com.nvidia.nvsi.xml
 
-# Thermal
-PRODUCT_PACKAGES += thermal.tegra
-
 # keylayout
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/tegra-kbc.kl:system/usr/keylayout/tegra-kbc.kl \
@@ -104,6 +101,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio.mocha.xml:system/etc/audio.mocha.xml
 
 PRODUCT_PACKAGES += \
+    android.hardware.audio@2.0-impl \
+    android.hardware.audio.effect@2.0-impl \
     audio.a2dp.default \
     audio.usb.default \
     audio.r_submix.default \
@@ -139,7 +138,9 @@ PRODUCT_COPY_FILES += \
 # All Shield devices xurrently use broadcom wifi / bluetooth modules
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/config/config-bcm.mk)
 PRODUCT_PACKAGES += \
+    android.hardware.wifi@1.0-service \
     hostapd \
+    wificond \
     wpa_supplicant \
     wpa_supplicant.conf
 
@@ -164,9 +165,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.xml:system/etc/permissions/android.software.sip.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
 
-# Power
-PRODUCT_PACKAGES += power.tegra
-
 # Sensors
 PRODUCT_PACKAGES += \
     sensors.tegra
@@ -174,6 +172,44 @@ PRODUCT_PACKAGES += \
 # Multi HAL configuration file
 PRODUCT_COPY_FILES += \
     device/xiaomi/mocha/sensors/etc/hals.conf:system/etc/sensors/hals.conf
+
+# Bluetooth
+PRODUCT_PACKAGES += \
+    libbt-vendor \
+    android.hardware.bluetooth@1.0-impl
+
+# Graphics
+PRODUCT_PACKAGES += \
+    android.hardware.graphics.allocator@2.0-impl \
+    android.hardware.graphics.allocator@2.0-service \
+    android.hardware.graphics.composer@2.1-impl \
+    android.hardware.graphics.mapper@2.0-impl
+
+# Keymaster
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster@3.0-impl
+
+# Lights
+PRODUCT_PACKAGES += \
+    android.hardware.light@2.0-impl
+
+# Memtrack
+PRODUCT_PACKAGES += \
+    android.hardware.memtrack@1.0-impl
+
+# Power
+PRODUCT_PACKAGES += power.tegra
+
+# Sensors
+PRODUCT_PACKAGES += \
+    android.hardware.sensors@1.0-impl
+
+# Thermal
+PRODUCT_PACKAGES += thermal.tegra
+
+# USB
+PRODUCT_PACKAGES += \
+    android.hardware.usb@1.0-service \
 
 # Packaging
 BLOCK_BASED_OTA := false
