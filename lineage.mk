@@ -5,8 +5,8 @@ $(call inherit-product, device/xiaomi/mocha/full_mocha.mk)
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sys.sdcardfs=true
 
-# Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/common_mini_tablet_wifionly.mk)
+# Inherit some common lineage stuff.
+$(call inherit-product, vendor/lineage/config/common_mini_tablet_wifionly.mk)
 
 PRODUCT_NAME := lineage_mocha
 PRODUCT_DEVICE := mocha
